@@ -1,0 +1,33 @@
+import PropTypes from 'prop-types'
+import { Button } from './Button.jsx'
+
+export function AppleHeader({ author, title, onToggleTheme }) {
+  return (
+    <section className="overflow-hidden rounded-4xl border border-slate-200/30 bg-white p-6 shadow-2xl shadow-slate-200/10 backdrop-blur-xl sm:p-8 dark:border-white/10 dark:bg-white/5 dark:shadow-slate-950/20">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="max-w-3xl space-y-4">
+          <span className="inline-flex rounded-full border border-sky-400/25 bg-sky-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-sky-200">
+            {author}
+          </span>
+          <div className="space-y-3">
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Button type="button" onClick={onToggleTheme} variant="primary">
+              Cambiar tema
+            </Button>
+            <Button as="a" href="#products" variant="secondary">
+              Ver productos
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+AppleHeader.propTypes = {
+  author: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  onToggleTheme: PropTypes.func.isRequired,
+}
