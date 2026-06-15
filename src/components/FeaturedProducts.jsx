@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { Button } from './Button.jsx'
 import { getCategories, getProducts } from '../services/productService.js'
 
-// Componente contenedor/presentacional: separa estado y filtrado de la vista del catálogo.
+// Componente contenedor/presentacional.
 const categories = getCategories()
 const allProducts = getProducts()
 
@@ -46,7 +46,7 @@ export function FeaturedProducts() {
   )
 }
 
-// Vista del catálogo: recibe datos y callbacks sin encargarse de la lógica principal.
+// Vista del catálogo.
 function FeaturedProductsView({ category, categories, onCategoryChange, onQueryChange, products, query }) {
   return (
     <div className="mt-6 space-y-5">
